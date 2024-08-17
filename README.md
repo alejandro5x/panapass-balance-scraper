@@ -1,7 +1,3 @@
-Here's a revised GitHub repository description incorporating MQTT functionality:
-
----
-
 ### Panapass Balance Scraper with MQTT Integration
 
 This repository contains a Python script that automates the retrieval of the Panapass balance using [Playwright](https://playwright.dev/python) and publishes the balance to an MQTT broker. Panapass is the electronic toll collection system used in Panama, and this script allows users to automatically check their balance and send it to an MQTT topic for further processing or monitoring.
@@ -41,7 +37,3 @@ The script will publish the Panapass balance to the specified MQTT broker and to
 ```
 Published balance of $25.00 to MQTT topic 'panapass/balance'.
 ```
-
----
-
-This description now includes the MQTT functionality and provides clear instructions on how to use it. You can further customize it as needed for your specific project.
