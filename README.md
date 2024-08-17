@@ -26,6 +26,7 @@ This repository contains a Python script designed to automate the retrieval of t
     ```bash
     pip install -r requirements.txt
     playwright install
+    playwright install-deps
     ```
 
 3. Create an `.env` file in the root directory of the project with the following structure:
