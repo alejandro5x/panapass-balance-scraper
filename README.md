@@ -48,5 +48,5 @@ python scrape_balance.py
 #### Example Output:
 Upon execution, the script will retrieve the Panapass balance and publish it to the specified MQTT broker and topic, as defined in the `.env` file:
 ```
-Published balance of $25.00 to MQTT topic 'panapass/balance'.
+Published balance of $25.10 to MQTT topic 'panapass/balance'.
 ```
