@@ -17,7 +17,6 @@ def run(playwright: Playwright) -> None:
     mqtt_password = os.getenv('MQTT_PASSWORD')
     mqtt_server = os.getenv('MQTT_SERVER')
     mqtt_port = int(os.getenv('MQTT_PORT'))
-
     
     browser = playwright.chromium.launch(headless=True)
     context = browser.new_context()
@@ -44,14 +43,8 @@ def run(playwright: Playwright) -> None:
     client.loop_start()
     
     xpayload = json.dumps({"state": str(monto), "updated_ts": str(int(time.time())), "updated_dt": str(datetime.now()) }, sort_keys=True, default=str)
-    #client.publish(topic="homeassistant/sensor/flypass/state", payload=str(importe), qos=0, retain=False)
-    #epoch_time = int(time.time())
-    #client.publish(topic="homeassistant/sensor/flypass/updated", payload=str(epoch_time), qos=0, retain=False)
     client.publish(topic="homeassistant/sensor/panapass", payload=xpayload, qos=0, retain=False)
-    
     time.sleep(delay)
-
-
 
 with sync_playwright() as playwright:
     run(playwright)
