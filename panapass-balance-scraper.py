@@ -8,8 +8,8 @@ import os
 import json
 
 load_dotenv()
-usuario = os.getenv('PANAPASS_NUMBER')
-contrasena = os.getenv('PANAPASS_PASSWORD')
+panapass_user = os.getenv('PANAPASS_NUMBER')
+panapass_password = os.getenv('PANAPASS_PASSWORD')
 mqtt_user = os.getenv('MQTT_USER')
 mqtt_password = os.getenv('MQTT_PASSWORD')
 mqtt_server = os.getenv('MQTT_BROKER')
@@ -25,9 +25,9 @@ def run(playwright: Playwright) -> None:
     page.goto("https://www.enarecargas.com/maxipista/private#!HomeView")
 
     try:
-        page.get_by_role("textbox", name="Nº Panapass").fill(usuario)
+        page.get_by_role("textbox", name="Nº Panapass").fill(panapass_user)
         page.get_by_role("textbox", name="Nº Panapass").press("Tab")
-        page.get_by_label("Contraseña*").fill(contrasena)
+        page.get_by_label("Contraseña*").fill(panapass_password)
         page.get_by_role("button", name="Identificarse").click()
         page.get_by_text("Saldo de la Cuenta: $").click()
 
