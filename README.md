@@ -19,7 +19,7 @@ This repository contains a Python script that automates the retrieval of the Pan
 #### Installation:
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/panapass-balance-scraper.git
+    git clone https://github.com/alejandro5x/panapass-balance-scraper.git
     cd panapass-balance-scraper
     ```
 
