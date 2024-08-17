@@ -1,0 +1,6 @@
+USUARIO_PANAPASS=000000
+CONTRASENA_PANAPASS=supersecurepassword
+MQTT_SERVER=192.168.x.xx
+MQTT_PORT=1883
+MQTT_USER=mqtt_user
+MQTT_PASSWORD=supersecuremqttpassword
