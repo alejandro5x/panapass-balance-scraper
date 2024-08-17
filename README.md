@@ -30,10 +30,13 @@ This repository contains a Python script designed to automate the retrieval of t
 
 3. Create an `.env` file in the root directory of the project with the following structure:
     ```
-    PANAPASS_USERNAME=yourPanapassUsername
+    PANAPASS_NUMBER=yourPanapassNumber
     PANAPASS_PASSWORD=yourPanapassPassword
-    MQTT_BROKER=yourBrokerAddress
-    MQTT_TOPIC=yourTopic
+    MQTT_BROKER=yourMQTTBrokerAddress
+    MQTT_TOPIC=yourMQTTTopic
+    MQTT_PORT=yourMQTTPort
+    MQTT_USER=yourMQTTUser
+    MQTT_PASSWORD=yourMQTTPassword
     ```
 
 #### Usage:
