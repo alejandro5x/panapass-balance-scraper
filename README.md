@@ -35,6 +35,7 @@ This repository contains a Python script designed to automate the retrieval of t
     PANAPASS_PASSWORD=yourPanapassPassword
     MQTT_BROKER=yourMQTTBrokerAddress
     MQTT_TOPIC=yourMQTTTopic
+    MQTT_ERROR_TOPIC=yourMQTTErrorTopic
     MQTT_PORT=yourMQTTPort
     MQTT_USER=yourMQTTUser
     MQTT_PASSWORD=yourMQTTPassword
