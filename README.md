@@ -1,18 +1,19 @@
 ### Panapass Balance Scraper with MQTT Integration
 
-This repository contains a Python script that automates the retrieval of the Panapass balance using [Playwright](https://playwright.dev/python) and publishes the balance to an MQTT broker. Panapass is the electronic toll collection system used in Panama, and this script allows users to automatically check their balance and send it to an MQTT topic for further processing or monitoring.
+This repository contains a Python script designed to automate the retrieval of the Panapass balance using [Playwright](https://playwright.dev/python), with the additional capability to publish the balance to an MQTT broker. Panapass serves as the electronic toll collection system utilized in Panama, and this script facilitates the seamless acquisition of the balance, followed by its transmission to a specified MQTT topic. The script is configured to use an `.env` file for securely storing credentials and configuration settings.
 
 #### Features:
-- **Automated Login:** Automatically logs into the Panapass website using the provided credentials.
-- **Balance Retrieval:** Scrapes the current Panapass balance.
-- **MQTT Publishing:** Publishes the retrieved balance to a specified MQTT broker and topic.
-- **Error Handling:** Provides clear error messages if login fails, the balance cannot be retrieved, or MQTT publishing fails.
-- **Cross-Platform:** Works on Windows, macOS, and Linux.
+- **Automated Login:** The script securely logs into the Panapass website using credentials stored in an `.env` file, ensuring that sensitive information remains protected.
+- **Balance Retrieval:** It efficiently scrapes and retrieves the current Panapass balance.
+- **MQTT Publishing:** Once retrieved, the balance is published to an MQTT broker, with the topic and broker details also sourced from the `.env` file.
+- **Error Handling:** Robust error handling is implemented to manage issues related to login failures, balance retrieval errors, and MQTT publishing failures.
+- **Cross-Platform Compatibility:** The script is designed to operate across various platforms, including Windows, macOS, and Linux.
 
 #### Requirements:
 - Python 3.7+
 - Playwright for Python
 - Paho-MQTT (for MQTT communication)
+- Python-dotenv (for loading environment variables)
 
 #### Installation:
 1. Clone the repository:
@@ -27,13 +28,21 @@ This repository contains a Python script that automates the retrieval of the Pan
     playwright install
     ```
 
+3. Create an `.env` file in the root directory of the project with the following structure:
+    ```
+    PANAPASS_USERNAME=yourPanapassUsername
+    PANAPASS_PASSWORD=yourPanapassPassword
+    MQTT_BROKER=yourBrokerAddress
+    MQTT_TOPIC=yourTopic
+    ```
+
 #### Usage:
 ```bash
-python scrape_balance.py --username yourPanapassUsername --password yourPanapassPassword --mqtt-broker yourBrokerAddress --mqtt-topic yourTopic
+python scrape_balance.py
 ```
 
 #### Example Output:
-The script will publish the Panapass balance to the specified MQTT broker and topic:
+Upon execution, the script will retrieve the Panapass balance and publish it to the specified MQTT broker and topic, as defined in the `.env` file:
 ```
 Published balance of $25.00 to MQTT topic 'panapass/balance'.
 ```
