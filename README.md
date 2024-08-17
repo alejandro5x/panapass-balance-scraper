@@ -1,20 +1,22 @@
-Here's an updated GitHub repository description for your project using Python:
+Here's a revised GitHub repository description incorporating MQTT functionality:
 
 ---
 
-### Panapass Balance Scraper
+### Panapass Balance Scraper with MQTT Integration
 
-This repository contains a Python script that automates the retrieval of the Panapass balance using [Playwright](https://playwright.dev/python). Panapass is the electronic toll collection system used in Panama, and this script allows users to quickly check their balance without manually logging into the website.
+This repository contains a Python script that automates the retrieval of the Panapass balance using [Playwright](https://playwright.dev/python) and publishes the balance to an MQTT broker. Panapass is the electronic toll collection system used in Panama, and this script allows users to automatically check their balance and send it to an MQTT topic for further processing or monitoring.
 
 #### Features:
 - **Automated Login:** Automatically logs into the Panapass website using the provided credentials.
-- **Balance Retrieval:** Scrapes the current Panapass balance and displays it in the terminal or saves it to a file.
-- **Error Handling:** Provides clear error messages if login fails or the balance cannot be retrieved.
+- **Balance Retrieval:** Scrapes the current Panapass balance.
+- **MQTT Publishing:** Publishes the retrieved balance to a specified MQTT broker and topic.
+- **Error Handling:** Provides clear error messages if login fails, the balance cannot be retrieved, or MQTT publishing fails.
 - **Cross-Platform:** Works on Windows, macOS, and Linux.
 
 #### Requirements:
 - Python 3.7+
 - Playwright for Python
+- Paho-MQTT (for MQTT communication)
 
 #### Installation:
 1. Clone the repository:
@@ -31,14 +33,15 @@ This repository contains a Python script that automates the retrieval of the Pan
 
 #### Usage:
 ```bash
-python scrape_balance.py --username yourPanapassUsername --password yourPanapassPassword
+python scrape_balance.py --username yourPanapassUsername --password yourPanapassPassword --mqtt-broker yourBrokerAddress --mqtt-topic yourTopic
 ```
 
 #### Example Output:
+The script will publish the Panapass balance to the specified MQTT broker and topic:
 ```
-Your current Panapass balance is: $25.00
+Published balance of $25.00 to MQTT topic 'panapass/balance'.
 ```
 
 ---
 
-This description is structured to be easily understandable and highlights the key features and usage instructions. Feel free to adjust it to fit your project.
+This description now includes the MQTT functionality and provides clear instructions on how to use it. You can further customize it as needed for your specific project.
