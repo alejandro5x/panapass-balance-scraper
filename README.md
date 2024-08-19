@@ -33,9 +33,9 @@ This repository contains a Python script designed to automate the retrieval of t
     ```
     PANAPASS_NUMBER=yourPanapassNumber
     PANAPASS_PASSWORD=yourPanapassPassword
-    MQTT_BROKER=yourMQTTBrokerAddress
     MQTT_TOPIC=yourMQTTTopic
     MQTT_ERROR_TOPIC=yourMQTTErrorTopic
+    MQTT_BROKER=yourMQTTBrokerAddress
     MQTT_PORT=yourMQTTPort
     MQTT_USER=yourMQTTUser
     MQTT_PASSWORD=yourMQTTPassword
@@ -50,4 +50,10 @@ python scrape_balance.py
 Upon execution, the script will retrieve the Panapass balance and publish it to the specified MQTT broker and topic, as defined in the `.env` file:
 ```
 Published balance of $25.10 to MQTT topic 'panapass/balance'.
+```
+
+#### Crontab:
+At minute 0 past every hour
+```
+0 * * * * /bin/bash -l -c 'source /home/alex/python/panapass-balance-scraper/bin/activate && python /home/alex/python/panapass-balance-scraper/panapass-balance-scraper.py' > /dev/null 2>&1
 ```

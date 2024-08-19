@@ -38,6 +38,9 @@ def run(playwright: Playwright) -> None:
         
         balance = balance_element.text_content()
         balance = balance.replace("Saldo de la Cuenta: $", "")
+
+        send_mqtt_data(mqtt_server, mqtt_port, mqtt_user, mqtt_password, mqtt_topic, balance)
+        send_mqtt_error(mqtt_server, mqtt_port, mqtt_user, mqtt_password, mqtt_error_topic, "")
     except (TimeoutError, ValueError) as e:
         error_message = f"Error getting balance: {str(e)}"
         send_mqtt_error(mqtt_server, mqtt_port, mqtt_user, mqtt_password, mqtt_error_topic, error_message)
@@ -47,7 +50,6 @@ def run(playwright: Playwright) -> None:
         context.close()
         browser.close()
 
-    send_mqtt_data(mqtt_server, mqtt_port, mqtt_user, mqtt_password, mqtt_topic, balance)
 
 def send_mqtt_data(server, port, user, password, topic, balance):
     client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, mqtt_user)
